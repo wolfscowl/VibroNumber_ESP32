@@ -12,7 +12,7 @@
 #define CONFIG_MOTOR 2
 
 // >>> Change this single line to switch hardware <<<
-#define CONFIG MODE_TFT
+#define CONFIG CONFIG_MOTOR
 
 // Only include and compile the code for the currently selected CONFIG.
 #if CONFIG == MODE_TFT
