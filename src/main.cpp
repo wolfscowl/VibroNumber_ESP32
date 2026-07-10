@@ -9,10 +9,10 @@
 // ==== BUILD CONFIG =====================================================
 // Available hardware configurations
 #define MODE_TFT   1
-#define CONFIG_MOTOR 2
+#define MODE_MOTOR 2
 
 // >>> Change this single line to switch hardware <<<
-#define CONFIG CONFIG_MOTOR
+#define CONFIG MODE_MOTOR
 
 // Only include and compile the code for the currently selected CONFIG.
 #if CONFIG == MODE_TFT
