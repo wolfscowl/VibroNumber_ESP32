@@ -3,8 +3,8 @@
 #include "BluetoothSerial.h"
 #include "ConfigData.h"
 #include "PatternController.h"
-#include "Renderer/IActorRenderer.h"
-#include "Display/IStatusDisplay.h"
+#include "renderer/IActorRenderer.h"
+#include "display/IStatusDisplay.h"
 
 // ==== BUILD CONFIG =====================================================
 // Available hardware configurations
@@ -18,9 +18,9 @@
 #if CONFIG == MODE_TFT
   #include "Renderer/TftActorRenderer.h"
   #include "Display/TftStatusDisplay.h"
-#elif CONFIG == CONFIG_MOTOR
-  #include "Renderer/MotorActorRenderer.h"
-  #include "Display/NullStatusDisplay.h"
+#elif CONFIG == MODE_MOTOR
+  #include "renderer/MotorActorRenderer.h"
+  #include "display/NullStatusDisplay.h"
 #else
   #error "Unknown CONFIG value - please set CONFIG_TFT or CONFIG_MOTOR above"
 #endif
@@ -40,7 +40,7 @@ TFT_eSPI tft = TFT_eSPI();
 #if CONFIG == MODE_TFT
   TftActorRenderer renderer(tft);
   TftStatusDisplay statusDisplay(tft);
-#elif CONFIG == CONFIG_MOTOR
+#elif CONFIG == MODE_MOTOR
   MotorActorRenderer renderer;
   NullStatusDisplay statusDisplay;
 #endif
