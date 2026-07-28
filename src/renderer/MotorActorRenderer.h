@@ -19,7 +19,13 @@ public:
   void allOff() override;
   void fire(int actorNumber, int intensity) override;
 
+  // Diagnostic: for every actor, report whether the multiplexer ACKs and
+  // whether the driver (0x5A) ACKs *through* that mux channel. Proves whether
+  // the I2C control path (esp. via MUX2) actually works. Prints to Serial.
+  void scanBus();
+
 private:
+  static const uint8_t DRV_ADDR  = 0x5A; // all DRV2605L share this I2C address
   static const uint8_t MUX1_ADDR = 0x70;
   static const uint8_t MUX2_ADDR = 0x71;
 
